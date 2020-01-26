@@ -51,24 +51,25 @@ const errorHandler = (err, req, res, next) => {
     res.render('error', { error: err.message });
 }
 
-// router.use((req, res, next) =>{
-//     console.log('Time:', Date.now())
-//     next()
-// })
-
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", CLIENT_ORIGIN);
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    res.header("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE");
+router.use((req, res, next) =>{
     res.header("Access-Control-Allow-Credentials", true); 
-    if (req.method === "OPTIONS") {
-      return res.sendStatus(204);
-    }
-    next();
-  });
+    console.log('Time:', Date.now())
+    next()
+})
+
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", CLIENT_ORIGIN);
+//     res.header(
+//       "Access-Control-Allow-Headers",
+//       "Origin, X-Requested-With, Content-Type, Accept"
+//     );
+//     res.header("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE");
+//     res.header("Access-Control-Allow-Credentials", true); 
+//     if (req.method === "OPTIONS") {
+//       return res.sendStatus(204);
+//     }
+//     next();
+//   });
 
 router.get("/news", (req, res, next)=>{
     console.log("Get news")
