@@ -106,7 +106,7 @@ router.delete("/news/:id", (req, res, next)=>{
 
 app.use(errorHandler)
 
-app.use("/", router)
+//app.use("/", router)
 app.use('/.netlify/functions/server', router);  // path must route to lambda 
 //app.listen(8080) 
 
