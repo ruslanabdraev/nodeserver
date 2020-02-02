@@ -52,7 +52,7 @@ const errorHandler = (err, req, res, next) => {
 }
 
 router.use((req, res, next) =>{
-    res.header("Access-Control-Allow-Credentials", false); 
+    //res.header("Access-Control-Allow-Credentials", false); 
     console.log('Time:', Date.now())
     next()
 })
@@ -121,7 +121,7 @@ router.delete("/news/:id", (req, res, next)=>{
 
 app.use(errorHandler)
 
-app.use("/", router)
+//app.use("/", router)
 app.use('/.netlify/functions/server', router);  // path must route to lambda 
 //app.listen(8080) 
 
